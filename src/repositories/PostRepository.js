@@ -8,6 +8,6 @@ export const GetPostById = (postId) => {
     return Post.findOne({_id: postId}).populate("person")
 }
 
-export const GetPosts = () => {
-    return Post.find({}).populate("person")
+export const GetPosts = ({page=1, pageSize=5}) => {
+    return Post.paginate({}, {page, pageSize})
 }

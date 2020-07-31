@@ -5,7 +5,7 @@ import * as PersonService from '../services/PersonService'
 
 let router = express.Router();
 router.get('/', function(req, res){
-    return PostsService.GetAllPosts().then(posts=>{
+    return PostsService.GetAllPosts(req.query).then(posts=>{
         return res.send(posts)
     })
 })

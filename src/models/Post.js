@@ -1,4 +1,5 @@
 import mongoose from '../DB/connect'
+import mongoosePagination from 'mongoose-paginate-v2'
 
 let Schema = mongoose.Schema;
 
@@ -6,16 +7,13 @@ const PostSchema = new Schema({
     title: String,
     coverText: String,
     coverImg: String,
-    body: String,
-    person: {
-        type: Schema.Types.ObjectId,
-        ref: "Person"
-    },
+    body: Array,
+    person: Object,
     creationDate: Date,
     active: Boolean
 });
 
-PostSchema.index({ _id: 1 });
+PostSchema.plugin(mongoosePagination);
 
 const Posts = mongoose.model('Posts', PostSchema);
 

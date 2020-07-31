@@ -10,6 +10,6 @@ export const GetPostById = (postId) => {
     return PostRepository.GetPostById(postId)
 }
 
-export const GetAllPosts = () => {
-    return PostRepository.GetPosts()
+export const GetAllPosts = (filters) => {
+    return PostRepository.GetPosts(filters)
 }
