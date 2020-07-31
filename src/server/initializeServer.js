@@ -5,6 +5,7 @@ import bodyParser from 'body-parser'
 import passport from 'passport'
 export let app = null
 export default ()=>{
+    app.use(cors())
     app = express()
     connectToDb()
     app.use(bodyParser.urlencoded({ extended: true }));
