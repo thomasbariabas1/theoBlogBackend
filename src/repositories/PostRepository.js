@@ -9,5 +9,5 @@ export const GetPostById = (postId) => {
 }
 
 export const GetPosts = ({page=1, pageSize=5}) => {
-    return Post.paginate({}, {page, limit:pageSize})
+    return Post.paginate({}, {page, limit:pageSize, projection:'-body'})
 }
