@@ -13,10 +13,23 @@ router.post('/save', passport.authenticate('jwt', { session: false }), function(
     })
 })
 
-router.get('/', function(req, res) {
+router.get('/latest', function(req, res) {
     return  AboutService.GetAbout().then((about) => {
             return res.send(about)
         })
+})
+
+router.get('/', function(req, res) {
+    return  AboutService.GetAbouts(req.query).then((abouts) => {
+        return res.send(abouts)
+    })
+})
+
+router.get('/:aboutId',  function(req, res) {
+    let aboutId = req.params.aboutId;
+    return  AboutService.GetAbout(aboutId).then((abouts) => {
+        return res.send(abouts)
+    })
 })
 
 export default router

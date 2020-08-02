@@ -1,22 +1,31 @@
 import * as AboutRepository from '../repositories/AboutRepository'
+import About from "../models/About";
 
-export const SaveAbout = (about, {profileImg, ...rest}) => {
+export const SaveAbout = ({_id, ...restAbout}, person) => {
     try {
-        if(!about.img) {
-            about.img = profileImg
-        }
 
-        if(about.active) {
-            about.active_date = new Date()
-        }
 
-        return AboutRepository.SaveAbout({...about, person: rest})
+        if (restAbout.active) {
+            About.updateMany({active: true}, {active: false})
+            restAbout.active_date = new Date()
+        }
+        if (_id) {
+            return About.updateOne({_id}, restAbout)
+        }
+        return AboutRepository.SaveAbout({...restAbout, person})
     } catch (e) {
         console.log('Error saving about', e)
         throw Error('About wasnt able to be saved.')
     }
 }
 
-export const GetAbout = () => {
-        return AboutRepository.GetLatestActiveAbout()
+export const GetAbout = (aboutId) => {
+    if (aboutId) {
+        return AboutRepository.GetAboutById(aboutId)
+    }
+    return AboutRepository.GetLatestActiveAbout()
+}
+
+export const GetAbouts = (query) => {
+    return AboutRepository.GetAll(query)
 }

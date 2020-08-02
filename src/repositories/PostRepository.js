@@ -5,9 +5,9 @@ export const SavePost = (post) => {
 }
 
 export const GetPostById = (postId) => {
-    return Post.findOne({_id: postId}).populate("person")
+    return Post.findOne({_id: postId})
 }
 
 export const GetPosts = ({page=1, pageSize=5}) => {
-    return Post.paginate({}, {page, limit:pageSize, projection:'-body'})
+    return Post.paginate({}, {page, limit:pageSize})
 }

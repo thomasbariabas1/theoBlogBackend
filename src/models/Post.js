@@ -13,6 +13,7 @@ const PostSchema = new Schema({
     active: Boolean
 });
 
+
 PostSchema.plugin(mongoosePagination);
 
 const Posts = mongoose.model('Posts', PostSchema);
