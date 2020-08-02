@@ -4,9 +4,9 @@ import About from "../models/About";
 export const SaveAbout = ({_id, ...restAbout}, person) => {
     try {
 
-
+        console.log('restAbout.active', restAbout.active)
         if (restAbout.active) {
-            About.updateMany({active: true}, {active: false})
+            About.updateMany({active: true}, {"$set":{active: false}})
             restAbout.active_date = new Date()
         }
         if (_id) {

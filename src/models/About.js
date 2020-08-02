@@ -8,11 +8,7 @@ const AboutSchema = new mongoose.Schema({
     about: Array,
     person: Object,
     active_date: Date,
-    active: Boolean,
-    facebook: String,
-    twitter: String,
-    medium: String,
-    github: String
+    active: Boolean
 });
 
 AboutSchema.plugin(mongoosePagination);

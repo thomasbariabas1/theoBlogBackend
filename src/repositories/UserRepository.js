@@ -19,3 +19,17 @@ export const SaveUser = (newUser) => {
     })
 
 }
+
+export const updateUser = (id, user) => {
+    return new Promise((resolve, reject) => {
+        try {
+            hashString(user.password, user.username).then(hashedPassword => {
+                User.updateOne({_id: id}, {...user, password: hashedPassword}).then((savedUser)=>{
+                    resolve(savedUser)
+                })
+            })
+        } catch (e) {
+            reject(e)
+        }
+    })
+}

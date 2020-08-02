@@ -17,9 +17,9 @@ export const SavePerson = (newPerson, userId) => {
 }
 
 export const GetPersonById = (personId) => {
-   return Person.findOne({id:personId}).then(person => person)
+   return Person.findOne({id:personId})
 }
 
 export const GetPersonByUserId = (userId) => {
-    return Person.findOne({userId}).then(person => person)
+    return Person.findOne({userId})
 }
