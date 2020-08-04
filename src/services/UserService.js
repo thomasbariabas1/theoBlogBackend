@@ -4,14 +4,17 @@ import Person from "../models/Person";
 
 export const SaveUser = ({_id, ...rest}) => {
     try {
+
         if(_id) {
             return UserRepository.updateUser(_id, rest).then((savedUser)=>{
                 console.log('savedUser',savedUser)
                 return Person.updateOne({userId: savedUser._id},{...savedUser})
             })
         }
-        return UserRepository.SaveUser(user).then(savedUser=>{
-            return PersonRepository.SavePerson(user, savedUser._id).then(savedPerson=> savedPerson)
+        console.log('rest',rest)
+
+        return UserRepository.SaveUser(rest).then(savedUser=>{
+            return PersonRepository.SavePerson(rest, savedUser._id).then(savedPerson=> savedPerson)
         })
     } catch (e) {
         console.log('Error saving user', e)

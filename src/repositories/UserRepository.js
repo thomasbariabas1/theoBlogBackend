@@ -2,6 +2,7 @@ import User from '../models/User'
 import {hashString} from "../services/CryproService";
 
 export const SaveUser = (newUser) => {
+    console.log('newUser',newUser)
     return new Promise((resolve, reject) => {
         try {
             hashString(newUser.password, newUser.username).then(hashedPassword => {

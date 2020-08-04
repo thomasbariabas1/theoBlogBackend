@@ -13,11 +13,16 @@ export const SavePerson = (newPerson, userId) => {
             reject(e)
         }
     })
+}
 
+export const UpdatePerson = (_id, person) => {
+    console.log('person', person)
+    console.log('_id', _id)
+    return Person.updateOne({_id}, {...person})
 }
 
 export const GetPersonById = (personId) => {
-   return Person.findOne({id:personId})
+   return Person.findOne({_id:personId})
 }
 
 export const GetPersonByUserId = (userId) => {

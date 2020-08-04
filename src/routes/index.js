@@ -5,6 +5,7 @@ import authRoute from './auth'
 import aboutUsRoute from './aboutUs'
 import userRoute from './user'
 import contactRoute from './contact'
+import instanceRoute from './instance'
 
 export default ()=>{
     app.use('/person', personRoute)
@@ -13,4 +14,5 @@ export default ()=>{
     app.use('/about', aboutUsRoute)
     app.use('/user', userRoute)
     app.use('/contact', contactRoute)
+    app.use('/instance', instanceRoute)
 }

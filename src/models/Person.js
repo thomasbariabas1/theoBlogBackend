@@ -11,8 +11,6 @@ const PersonSchema = new mongoose.Schema({
     github: String
 });
 
-PersonSchema.index({ _id: 1 });
-
 const Person = mongoose.model('Person', PersonSchema);
 
 export default Person
