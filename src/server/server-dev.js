@@ -5,10 +5,12 @@ import config from '../../webpack.dev.config.js'
 import Init, {app} from './initializeServer'
 import InitializePassport from './initializePassport'
 import InitRoutes from '../routes'
+import initiateGraphQl from "../GraphQl";
 
 Init()
 InitRoutes()
 InitializePassport()
+initiateGraphQl()
 
 const compiler = webpack(config)
 

@@ -6,3 +6,4 @@ Coverage
 coverage
 
 .env.dev
+.env.local
