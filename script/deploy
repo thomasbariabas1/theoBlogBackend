@@ -1,0 +1,8 @@
+#!/bin/sh
+ssh ubuntu@13.59.73.156 <<EOF
+ cd ~/apps/theoBlogBackend
+ git pull
+ npm run buildProd
+ pm2 restart all
+ exit
+EOF
