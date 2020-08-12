@@ -1,7 +1,6 @@
 import * as AboutService from "../services/AboutService";
 
 const types = `
-    
     type Person {
         firstName: String,
         lastName: String,
