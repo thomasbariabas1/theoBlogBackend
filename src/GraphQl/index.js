@@ -25,7 +25,7 @@ const rootLookups = {
     ...InstanceLookups
 }
 const initiateGraphQl = () => {
-    app.use('/graphql', graphqlHTTP({
+    app.post('/graphql', graphqlHTTP({
         schema: rootSchema,
         rootValue: rootLookups,
         graphiql: true,
