@@ -8,7 +8,6 @@ const databaseName = process.env.DATABASE_NAME
 
 export const connectToDb = () => {
     mongoose.connect(`mongodb://${dbUsername}:${dbPassword}@${dbHost}:${dbPort}/${databaseName}`, {useNewUrlParser: true});
-    // mongoose.connect('mongodb://localhost:27017/theoBlog', {useNewUrlParser: true});
     mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
     mongoose.connection.once('open', function() {
         console.log('Connected')

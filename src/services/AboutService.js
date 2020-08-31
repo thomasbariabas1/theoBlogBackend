@@ -10,7 +10,7 @@ export const SaveAbout = ({_id, ...restAbout}, person) => {
             restAbout.active_date = new Date()
         }
         if (_id) {
-            return About.updateOne({_id}, restAbout)
+            return About.updateOne({_id}, {...restAbout, person})
         }
         return AboutRepository.SaveAbout({...restAbout, person})
     } catch (e) {
@@ -28,4 +28,9 @@ export const GetAbout = (aboutId) => {
 
 export const GetAbouts = (query) => {
     return AboutRepository.GetAll(query)
+}
+
+export const GetActiveAbout = () => {
+    return AboutRepository.GetLatestActiveAbout()
+
 }

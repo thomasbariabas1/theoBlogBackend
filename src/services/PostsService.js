@@ -16,3 +16,9 @@ export const GetPostById = (postId) => {
 export const GetAllPosts = (filters) => {
     return PostRepository.GetPosts(filters)
 }
+
+export const GetPost = (postId) => {
+   return GetPostById(postId).then(post=>{
+        return post
+    })
+}

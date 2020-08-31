@@ -24,6 +24,6 @@ export const GetAboutById = (aboutId) => {
     return About.findOne({_id:aboutId})
 }
 
-export const GetAll = (page = 0, pageSize = 5) => {
+export const GetAll = ({page = 0, pageSize = 5}) => {
    return About.paginate({}, {page, limit:pageSize})
 }
